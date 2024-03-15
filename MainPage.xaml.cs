@@ -45,6 +45,7 @@ namespace BibliotekaGierMAUI
                     Description = "Grand Theft Auto V is a 2013 action-adventure game developed by Rock",
                     ReleaseDate = new DateTime(2013, 9, 17),
                     Image = "gta5.jpg",
+                    Genres = new string[] { "Action", "Adventure" }
                 },
                 new Game
                 {
@@ -56,6 +57,7 @@ namespace BibliotekaGierMAUI
                     Genres = new string[] { "Action", "Adventure" }
                 },
                 };
+            view.ItemsSource = games; // przypisanie listy gier do widoku
         }
     }
 
