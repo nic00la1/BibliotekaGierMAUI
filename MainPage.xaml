@@ -1,57 +1,99 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BibliotekaGierMAUI.MainPage">
+             xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
+             x:Class="BibliotekaGierMAUI.MainPage"
+             Title="Home">
 
-    <Grid RowDefinitions="Auto, *">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout" x:Key="HeaderStack">
+            <Setter Property="Margin" Value="20,16,20,14"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Padding" Value="20,0"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="SectionHeading">
+            <Setter Property="FontFamily" Value="NotoSerifBold"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+        </Style>
+        <Style TargetType="Label" x:Key="ShowAll">
+            <Setter Property="HorizontalOptions" Value="End"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+            <Setter Property="VerticalOptions" Value="End"/>
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1"/>
+            <Setter Property="Color" Value="#eee"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
 
-        <SearchBar Grid.Row="0" Text="Search" HorizontalOptions="FillAndExpand"/>
+        <DataTemplate x:DataType="models:Game" x:Key="GameTemplate">
+            <StackLayout Margin="10">
+                <Border Stroke="Yellow"
+                        MaximumWidthRequest="400"
+                        HorizontalOptions="Center"
+                        StrokeShape="RoundRectangle 20,20,20,20"
+                        Margin="10">
+                    <Image Source="{Binding Image}"
+                           WidthRequest="200"
+                           Aspect="AspectFit">
+                        <Image.Shadow>
+                            <Shadow Brush="Black"
+                                    Offset="20,20"
+                                    Radius="40"
+                                    Opacity="0.8" />
+                        </Image.Shadow>
+                    </Image>
+                </Border>
 
-        <!--#region CollectionView-->
-        <CollectionView x:Name="view">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Border Stroke="Yellow"
-                                MaximumWidthRequest="400"
-                                HorizontalOptions="Center"
-                                StrokeShape="RoundRectangle 20,20,20,20"
-                                Margin="10">
-                            <Image Source="{Binding Image}"
-                                   WidthRequest="200"
-                                   Aspect="AspectFit">
-                                <Image.Shadow>
-                                    <Shadow Brush="Black"
-                                            Offset="20,20"
-                                            Radius="40"
-                                            Opacity="0.8" />
-                                </Image.Shadow>
-                            </Image>
-                        </Border>
-
-                        <Label Text="{Binding Title, StringFormat='Title: {0}'}"
-                               FontSize="20"
-                               FontAttributes="Bold"
-                               Margin="10,5"/>
-                        <Label Text="{Binding Description}"
-                               Margin="10,0,10,10"/>
-                        <Label Text="{Binding ReleaseDate}"
-                               Margin="10,0,10,10"/>
-                        <StackLayout Orientation="Horizontal" Margin="10,0,10,10">
-                            <StackLayout BindableLayout.ItemsSource="{Binding Genres}"
-                                         Orientation="Horizontal">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <Label Text="{Binding}"
-                                               Margin="5"/>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
-                            </StackLayout>
-                        </StackLayout>
+                <Label Text="{Binding Title, StringFormat='Title: {0}'}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Margin="10,5"/>
+                <Label Text="{Binding Description}"
+                       Margin="10,0,10,10"/>
+                <Label Text="{Binding ReleaseDate}"
+                       Margin="10,0,10,10"/>
+                <StackLayout Orientation="Horizontal" Margin="10,0,10,10">
+                    <StackLayout BindableLayout.ItemsSource="{Binding Genres}"
+                                 Orientation="Horizontal">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding}"
+                                       Margin="5"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
                     </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <!--#endregion-->
-    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </DataTemplate>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Style="{StaticResource HeaderStack}">
+                <Label Text="Popular tags" Style="{StaticResource SectionHeading}"/>
+                <Label Text="Show All" Style="{StaticResource ShowAll}"/>
+            </StackLayout>
+
+            <!-- Insert your tag collection here -->
+
+
+            <BoxView />
+
+            <StackLayout Style="{StaticResource HeaderStack}">
+                <Label Text="Latest games" Style="{StaticResource SectionHeading}"/>
+                <Label Text="Show All" Style="{StaticResource ShowAll}"/>
+            </StackLayout>
+            <CollectionView x:Name="view"
+                            ItemsSource="{Binding LatestGames}"
+                            ItemTemplate="{StaticResource GameTemplate}"/>
+
+            <!-- Add other sections similarly -->
+
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

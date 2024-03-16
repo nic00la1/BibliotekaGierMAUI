@@ -8,5 +8,6 @@
         public DateOnly ReleaseDate { get; set; }
         public string? Image { get; set; }
         public string[]? Genres { get; set; }
+
     }
 }
