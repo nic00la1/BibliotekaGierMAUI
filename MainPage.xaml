@@ -2,7 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BibliotekaGierMAUI.MainPage">
 
-    <ScrollView>
+    <Grid RowDefinitions="Auto, *">
+
+        <SearchBar Grid.Row="0" Text="Search" HorizontalOptions="FillAndExpand"/>
+
         <!--#region CollectionView-->
         <CollectionView x:Name="view">
             <CollectionView.ItemTemplate>
@@ -17,14 +20,14 @@
                                    WidthRequest="200"
                                    Aspect="AspectFit">
                                 <Image.Shadow>
-                                    <Shadow Brush="Yellow"
+                                    <Shadow Brush="Black"
                                             Offset="20,20"
                                             Radius="40"
                                             Opacity="0.8" />
                                 </Image.Shadow>
                             </Image>
                         </Border>
-                        
+
                         <Label Text="{Binding Title, StringFormat='Title: {0}'}"
                                FontSize="20"
                                FontAttributes="Bold"
@@ -49,6 +52,6 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <!--#endregion-->
-    </ScrollView>
+    </Grid>
 
 </ContentPage>
