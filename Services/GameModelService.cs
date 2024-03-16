@@ -4,6 +4,7 @@ namespace BibliotekaGierMAUI.Services
 {
     public class GameModelService
     {
+
         public List<Game> GetGames()
         {
             return new List<Game>
@@ -58,5 +59,7 @@ namespace BibliotekaGierMAUI.Services
                 },
             };
         }
+
+
     }
 }

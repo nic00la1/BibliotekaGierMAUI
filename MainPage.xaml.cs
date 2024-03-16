@@ -5,16 +5,26 @@ namespace BibliotekaGierMAUI
 {
     public partial class MainPage : ContentPage
     {
-        GameModelService gameService;
+        private GameModelService gameService; // deklaracja serwisu do pobierania gier, itp.
+        private TagsService tagsService; // deklaracja serwisu do pobierania tagów
+
         public MainPage()
         {
             InitializeComponent();
 
+            // Inicjalizacja serwisów
             gameService = new GameModelService();
-            // Pobierasz listę gier z Service
-            List<Game> games = gameService.GetGames();
+            tagsService = new TagsService();
 
+            // Pobranie listy gier i tagów
+            List<Game> games = gameService.GetGames();
+            List<string> tags = tagsService.GetTags().ToList();
+
+            // Przypisanie do widoku
             view.ItemsSource = games; // przypisanie listy gier do widoku
+            tagsListView.ItemsSource = tags; // przypisanie listy tagów do widoku
+
+
         }
     }
 }

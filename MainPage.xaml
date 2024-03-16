@@ -79,7 +79,16 @@
             </StackLayout>
 
             <!-- Insert your tag collection here -->
-
+        
+            <StackLayout>
+                <ListView x:Name="tagsListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
 
             <BoxView />
 
