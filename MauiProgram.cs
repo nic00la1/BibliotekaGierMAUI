@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BibliotekaGierMAUI.Services;
+using BibliotekaGierMAUI.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace BibliotekaGierMAUI
 {
@@ -9,6 +11,8 @@ namespace BibliotekaGierMAUI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .RegisterAppServices()
+                .RegisterViewModels()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -25,6 +29,20 @@ namespace BibliotekaGierMAUI
 #endif
 
             return builder.Build();
+        }
+
+        public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
+        {
+            mauiAppBuilder.Services.AddSingleton<IGamesService, MockGamesService>();
+
+            return mauiAppBuilder;
+        }
+
+        public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+        {
+            mauiAppBuilder.Services.AddTransient<MainViewModel>();
+
+            return mauiAppBuilder;
         }
     }
 }

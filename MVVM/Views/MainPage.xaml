@@ -1,6 +1,7 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
+             xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.ViewModels"
              x:Class="BibliotekaGierMAUI.MainPage"
              Title="Home">
 
@@ -29,42 +30,15 @@
         </Style>
 
         <DataTemplate x:DataType="models:Game" x:Key="GameTemplate">
-            <StackLayout Margin="10">
-                <Border Stroke="Yellow"
-                        MaximumWidthRequest="400"
-                        HorizontalOptions="Center"
-                        StrokeShape="RoundRectangle 20,20,20,20"
-                        Margin="10">
-                    <Image Source="{Binding Image}"
-                           WidthRequest="200"
-                           Aspect="AspectFit">
-                        <Image.Shadow>
-                            <Shadow Brush="Black"
-                                    Offset="20,20"
-                                    Radius="40"
-                                    Opacity="0.8" />
-                        </Image.Shadow>
-                    </Image>
-                </Border>
-
-                <Label Text="{Binding Title, StringFormat='Title: {0}'}"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       Margin="10,5"/>
-                <Label Text="{Binding Description}"
-                       Margin="10,0,10,10"/>
-                <Label Text="{Binding ReleaseDate}"
-                       Margin="10,0,10,10"/>
-                <StackLayout Orientation="Horizontal" Margin="10,0,10,10">
-                    <StackLayout BindableLayout.ItemsSource="{Binding Genres}"
-                                 Orientation="Horizontal">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate>
-                                <Label Text="{Binding}"
-                                       Margin="5"/>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
+            <StackLayout Orientation="Vertical" Margin="20,0,0,0" WidthRequest="300" HeightRequest="260">
+                <Frame Padding="0" IsClippedToBounds="True" BorderColor="Transparent">
+                    <Image Source="{Binding Image}" HeightRequest="180" WidthRequest="300" Aspect="AspectFill" />
+                </Frame>
+                <Label Text="{Binding Title}" Margin="0,4,0,0" FontSize="18" FontFamily="PoppinsSemibold" MaxLines="2" />
+                <StackLayout Orientation="Horizontal" Spacing="4">
+                    <Label Text="{Binding Category}" TextColor="{StaticResource Primary}"/>
+                    <Label Text="." FontAttributes="Bold" TextColor="{StaticResource Gray200}"/>
+                    <Label Text="{Binding ReleaseDate}" TextColor="{StaticResource Gray200}"/>
                 </StackLayout>
             </StackLayout>
         </DataTemplate>
@@ -72,33 +46,24 @@
 
 
     <ScrollView>
-        <VerticalStackLayout>
+         <VerticalStackLayout>
             <StackLayout Style="{StaticResource HeaderStack}">
                 <Label Text="Popular tags" Style="{StaticResource SectionHeading}"/>
                 <Label Text="Show All" Style="{StaticResource ShowAll}"/>
             </StackLayout>
 
             <!-- Insert your tag collection here -->
-        
-            <StackLayout>
-                <ListView x:Name="tagsListView">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding}" />
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
+            
             <BoxView />
 
             <StackLayout Style="{StaticResource HeaderStack}">
                 <Label Text="Latest games" Style="{StaticResource SectionHeading}"/>
                 <Label Text="Show All" Style="{StaticResource ShowAll}"/>
             </StackLayout>
-            <CollectionView x:Name="view"
-                            ItemsSource="{Binding LatestGames}"
-                            ItemTemplate="{StaticResource GameTemplate}"/>
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding LatestGames}"
+                             BindableLayout.ItemTemplate="{StaticResource GameTemplate}"/>
+            </ScrollView>
 
             <!-- Add other sections similarly -->
 
