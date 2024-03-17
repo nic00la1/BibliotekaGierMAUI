@@ -1,24 +1,13 @@
 ﻿namespace BibliotekaGierMAUI.Models
 {
-    public class Game
+    public class Game(int id, string title, string description, DateOnly releaseDate, string image, string category, string[] genres)
     {
-        public int Id { get; set; }
-        public string? Title { get; set; }
-        public string? Description { get; set; }
-        public DateOnly ReleaseDate { get; set; }
-        public string? Image { get; set; }
-        public string? Category { get; set; }
-        public string[]? Genres { get; set; }
-
-        public Game(int id, string title, string description, DateOnly releaseDate, string image, string category, string[] genres)
-        {
-            Id = id;
-            Title = title;
-            Description = description;
-            ReleaseDate = releaseDate;
-            Image = image;
-            Category = category;
-            Genres = genres;
-        }
+        public int Id { get; set; } = id;
+        public string? Title { get; set; } = title;
+        public string? Description { get; set; } = description;
+        public DateOnly ReleaseDate { get; set; } = releaseDate;
+        public string? Image { get; set; } = image;
+        public string? Category { get; set; } = category;
+        public string[]? Genres { get; set; } = genres;
     }
 }
