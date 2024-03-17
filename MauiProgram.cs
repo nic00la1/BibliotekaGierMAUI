@@ -42,6 +42,8 @@ namespace BibliotekaGierMAUI
         {
             mauiAppBuilder.Services.AddTransient<MainViewModel>();
 
+            mauiAppBuilder.Services.AddTransient<MainPage>();
+
             return mauiAppBuilder;
         }
     }
