@@ -11,6 +11,9 @@
         <Tab x:Name="HomeTab">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="home" />
         </Tab>
+        <Tab x:Name="SectionsTab">
+            <ShellContent ContentTemplate="{DataTemplate views:SectionsPage}" Route="sections" />
+        </Tab>
         
     </TabBar>
 

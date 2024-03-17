@@ -1,9 +1,23 @@
 ﻿using BibliotekaGierMAUI.Models;
+using BibliotekaGierMAUI.MVVM.Models;
+using BibliotekaGierMAUI.MVVM.Views;
 
 namespace BibliotekaGierMAUI.Services
 {
     public class MockGamesService : IGamesService
     {
+        public ICollection<Category> GetCategories() =>
+            [
+                new("RPG", MaterialDesignIcons.LocalAtm),
+                new("FPP", MaterialDesignIcons.Camera),
+                new("TPP", MaterialDesignIcons.LiveTv),
+                new("fantasy", MaterialDesignIcons.LocalPharmacy),
+                new("sci-fi", MaterialDesignIcons.LocalPizza),
+                new("western", MaterialDesignIcons.LocalBar),
+                new("action", MaterialDesignIcons.LocalMovies),
+                new("crime", MaterialDesignIcons.Portrait)
+            ];
+
         public ICollection<Game> GetLatestGames() =>
             [
                 new (1,
