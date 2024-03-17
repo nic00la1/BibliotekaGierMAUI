@@ -27,8 +27,22 @@
                 <Label Text="{Binding ReleaseDate}"
                        VerticalOptions="Center"
                      TextColor="{StaticResource Gray400}"/>
+
+                <FlexLayout BindableLayout.ItemsSource="{Binding Genres}" Margin="10,0" HorizontalOptions="EndAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="{StaticResource Primary}"
+                               BorderColor="Transparent"
+                               CornerRadius="4"
+                               Padding="7,2"
+                               Margin="0.5">
+                                <Label Text="{Binding .}" FontFamily="Poppins-Bold" VerticalOptions="Center"/>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
             </StackLayout>
-            <Label Text="{Binding Body}"
+            <Label Text="{Binding Description}"
                    Margin="20,0"
                    FontSize="16"/>
         </VerticalStackLayout>

@@ -65,7 +65,6 @@
 	  <None Remove="Resources\Images\categories.png" />
 	  <None Remove="Resources\Images\cyberpunk2077.jpg" />
 	  <None Remove="Resources\Images\dotnet_bot.svg" />
-	  <None Remove="Resources\Images\gta5.jpg" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\rdr2.jpg" />
