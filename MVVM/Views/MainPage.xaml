@@ -31,6 +31,11 @@
 
         <DataTemplate x:DataType="models:Game" x:Key="GameTemplate">
             <StackLayout Orientation="Vertical" Margin="20,0,0,0" WidthRequest="300" HeightRequest="260">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                                          Path=TappedCommand}"/>
+                </StackLayout.GestureRecognizers>
                 <Frame Padding="0" IsClippedToBounds="True" BorderColor="Transparent">
                     <Image Source="{Binding Image}" HeightRequest="180" WidthRequest="300" Aspect="AspectFill" />
                 </Frame>
@@ -60,7 +65,7 @@
                 <Label Text="Latest games" Style="{StaticResource SectionHeading}"/>
                 <Label Text="Show All" Style="{StaticResource ShowAll}"/>
             </StackLayout>
-            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <ScrollView Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding LatestGames}"
                              BindableLayout.ItemTemplate="{StaticResource GameTemplate}"/>
             </ScrollView>

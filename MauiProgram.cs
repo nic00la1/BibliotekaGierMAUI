@@ -1,4 +1,6 @@
-﻿using BibliotekaGierMAUI.Services;
+﻿using BibliotekaGierMAUI.MVVM.ViewModels;
+using BibliotekaGierMAUI.MVVM.Views;
+using BibliotekaGierMAUI.Services;
 using BibliotekaGierMAUI.ViewModels;
 using Microsoft.Extensions.Logging;
 
@@ -41,8 +43,10 @@ namespace BibliotekaGierMAUI
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
             mauiAppBuilder.Services.AddTransient<MainViewModel>();
+            mauiAppBuilder.Services.AddTransient<GameViewModel>();
 
             mauiAppBuilder.Services.AddTransient<MainPage>();
+            mauiAppBuilder.Services.AddTransient<GamePage>();
 
             return mauiAppBuilder;
         }
