@@ -373,7 +373,7 @@
         <Setter Property="Shell.ForegroundColor" Value="{StaticResource Primary}" />
 
         <!--Bottom Bar Icons, Unselected-->
-        <Setter Property="Shell.TabBarUnselectedColor" Value="#e0e0e0" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Blue200Accent}" />
     </Style>
 
     <Style TargetType="NavigationPage">

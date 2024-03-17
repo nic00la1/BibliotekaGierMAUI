@@ -1,17 +1,17 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
              xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.ViewModels"
-             x:Class="BibliotekaGierMAUI.MainPage"
+             x:Class="BibliotekaGierMAUI.MVVM.Views.HomePage"
              Title="Home">
-
     <ContentPage.Resources>
         <Style TargetType="StackLayout" x:Key="HeaderStack">
             <Setter Property="Margin" Value="20,16,20,14"/>
             <Setter Property="Orientation" Value="Horizontal"/>
             <Setter Property="Padding" Value="20,0"/>
         </Style>
-        
+
         <Style TargetType="Label" x:Key="SectionHeading">
             <Setter Property="FontFamily" Value="NotoSerifBold"/>
             <Setter Property="FontSize" Value="20"/>
@@ -33,7 +33,7 @@
             <StackLayout Orientation="Vertical" Margin="20,0,0,0" WidthRequest="300" HeightRequest="260">
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer CommandParameter="{Binding .}" 
-                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}},
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},
                                           Path=TappedCommand}"/>
                 </StackLayout.GestureRecognizers>
                 <Frame Padding="0" IsClippedToBounds="True" BorderColor="Transparent">
@@ -51,14 +51,14 @@
 
 
     <ScrollView>
-         <VerticalStackLayout>
+        <VerticalStackLayout>
             <StackLayout Style="{StaticResource HeaderStack}">
                 <Label Text="Popular tags" Style="{StaticResource SectionHeading}"/>
                 <Label Text="Show All" Style="{StaticResource ShowAll}"/>
             </StackLayout>
 
             <!-- Insert your tag collection here -->
-            
+
             <BoxView />
 
             <StackLayout Style="{StaticResource HeaderStack}">
@@ -69,6 +69,8 @@
                 <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding LatestGames}"
                              BindableLayout.ItemTemplate="{StaticResource GameTemplate}"/>
             </ScrollView>
+
+            <BoxView />
 
             <!-- Add other sections similarly -->
 

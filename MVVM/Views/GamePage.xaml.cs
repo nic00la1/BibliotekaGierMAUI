@@ -6,7 +6,7 @@ namespace BibliotekaGierMAUI.MVVM.Views;
 
 public partial class GamePage : ContentPage, IQueryAttributable
 {
-    private readonly IGamesService _games;
+    private IGamesService _games;
 
     public GamePage(IGamesService games)
     {

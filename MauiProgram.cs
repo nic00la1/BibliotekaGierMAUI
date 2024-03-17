@@ -42,11 +42,11 @@ namespace BibliotekaGierMAUI
 
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
         {
-            mauiAppBuilder.Services.AddTransient<MainViewModel>();
+            mauiAppBuilder.Services.AddTransient<HomeViewModel>();
             mauiAppBuilder.Services.AddTransient<GameViewModel>();
             mauiAppBuilder.Services.AddTransient<SectionsViewModel>();
 
-            mauiAppBuilder.Services.AddTransient<MainPage>();
+            mauiAppBuilder.Services.AddTransient<HomePage>();
             mauiAppBuilder.Services.AddTransient<GamePage>();
             mauiAppBuilder.Services.AddTransient<SectionsPage>();
 

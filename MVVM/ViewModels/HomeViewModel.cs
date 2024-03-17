@@ -3,9 +3,9 @@ using BibliotekaGierMAUI.Services;
 
 namespace BibliotekaGierMAUI.ViewModels
 {
-    public class MainViewModel
+    public class HomeViewModel
     {
-        public MainViewModel(IGamesService games)
+        public HomeViewModel(IGamesService games)
         {
             this.LatestGames = games.GetLatestGames();
 
