@@ -9,14 +9,17 @@
     Title="Biblioteka Gier 😎">
 
     <TabBar>
-        <Tab x:Name="HomeTab" Title="Home">
-            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" Route="home" />
-        </Tab>
-        <Tab x:Name="SectionsTab" Title="Sections">
-            <ShellContent ContentTemplate="{DataTemplate views:SectionsPage}" Route="sections" />
-        </Tab>
-        
-        
-    </TabBar>
+        <ShellContent 
+                Title="Home"
+                ContentTemplate="{DataTemplate views:HomePage}" 
+                Icon="home.png"
+                Route="home" />
+        <ShellContent 
+            Title="Sections"
+            ContentTemplate="{DataTemplate views:SectionsPage}"
+            Icon="categories.png"
+            Route="sections" />
 
+
+    </TabBar>
 </Shell>

@@ -10,8 +10,6 @@ namespace BibliotekaGierMAUI
 
             Routing.RegisterRoute("game", typeof(GamePage));
 
-            this.HomeTab.Icon = ImageSource.FromResource("BibliotekaGierMAUI.Resources.home.png", this.GetType().Assembly);
-            this.SectionsTab.Icon = ImageSource.FromResource("BibliotekaGierMAUI.Resources.categories.png", this.GetType().Assembly);
         }
     }
 }
