@@ -38,6 +38,11 @@ namespace BibliotekaGierMAUI.Services
             };
         }
 
+        public ICollection<string> GetFewTags()
+        {
+            return GetTags().Take(5).ToList();
+        }
+
         // Uzywam tego do kategorii, ktore wyswietlaja sie w SectionsPage
         public ICollection<Category> GetCategories() =>
             [
