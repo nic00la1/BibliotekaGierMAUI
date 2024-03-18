@@ -1,12 +1,55 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
+             xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.MVVM.ViewModels"
              x:Class="BibliotekaGierMAUI.MVVM.Views.BookmarksPage"
              Title="Bookmarks">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Games}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Game">
+                    <Border StrokeThickness="0.5">
+                        <ContentView Padding="16">
+                            <Grid ColumnSpacing="16" ColumnDefinitions="120, *" RowDefinitions="60,40,20">
+                                <Frame Padding="0"
+                                       Grid.Column="0"
+                                       Grid.RowSpan="3"
+                                       BorderColor="Transparent"
+                                       IsClippedToBounds="True">
+                                    <Image Source="{Binding Image}"
+                                           Aspect="AspectFill"/>
+                                    
+                                </Frame>
+                                <Label Text="{Binding Title}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   MaxLines="3"
+                                   FontFamily="PoppinsSemibold"
+                                   FontSize="18"/>
+                                <Label Text="{Binding Description}"
+                                   TextColor="{StaticResource Gray400}"
+                                       Margin="0,-30,10,0"
+                                   MaxLines="2"
+                                   Grid.Row="1"
+                                   Grid.Column="1"/>
+                                
+                                <StackLayout Orientation="Horizontal"
+                                         Spacing="4"
+                                         Grid.Row="2"
+                                         Grid.Column="1">
+                                    <Label Text="{Binding Category}"
+                                       TextColor="{StaticResource Primary}"/>
+                                    <Label Text="·"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource Gray200}"/>
+                                    <Label Text="{Binding ReleaseDate}"
+                                   TextColor="{StaticResource Gray200}"/>
+                                </StackLayout>
+                            </Grid>
+                        </ContentView>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
 </ContentPage>
