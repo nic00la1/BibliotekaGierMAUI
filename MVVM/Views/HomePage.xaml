@@ -62,11 +62,11 @@
             <BoxView />
 
             <StackLayout Style="{StaticResource HeaderStack}">
-                <Label Text="Latest games" Style="{StaticResource SectionHeading}"/>
+                <Label Text="Popular games" Style="{StaticResource SectionHeading}"/>
                 <Label Text="Show All" Style="{StaticResource ShowAll}"/>
             </StackLayout>
             <ScrollView Orientation="Horizontal">
-                <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding LatestGames}"
+                <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding PopularGames}"
                              BindableLayout.ItemTemplate="{StaticResource GameTemplate}"/>
             </ScrollView>
 

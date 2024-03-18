@@ -5,7 +5,7 @@ namespace BibliotekaGierMAUI.Services
 {
     public interface IGamesService
     {
-        public ICollection<Game> GetLatestGames();
+        public ICollection<Game> GetPopularGames();
         public ICollection<Category> GetCategories();
         public ICollection<Game> GetGamesByCategory(Category category);
     }

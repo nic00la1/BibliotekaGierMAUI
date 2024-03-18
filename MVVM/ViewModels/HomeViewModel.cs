@@ -7,7 +7,7 @@ namespace BibliotekaGierMAUI.ViewModels
     {
         public HomeViewModel(IGamesService games)
         {
-            LatestGames = games.GetLatestGames();
+            PopularGames = games.GetPopularGames();
 
             // Gdy uzytkownik kliknie na gre, przenies go do strony z informacjami o grze
             TappedCommand = new Command<Game>((game) =>
@@ -20,7 +20,7 @@ namespace BibliotekaGierMAUI.ViewModels
             });
         }
 
-        public ICollection<Game> LatestGames { get; set; }
+        public ICollection<Game> PopularGames { get; set; }
         public Command<Game> TappedCommand { get; set; }
     }
 }

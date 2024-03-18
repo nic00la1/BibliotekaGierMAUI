@@ -8,14 +8,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="EvenTemplate">
-                <StackLayout Background="{StaticResource Gray600}" Orientation="Horizontal" Padding="10" Spacing="10">
+                <StackLayout Background="{AppThemeBinding Light=#f2ece6, Dark={StaticResource Gray950Brush}}" Orientation="Horizontal" Padding="10" Spacing="10">
                     <Image Source="{Binding Image}" HeightRequest="50" Aspect="AspectFill" />
                     <Label Text="{Binding Title}" FontAttributes="Bold" 
                             VerticalTextAlignment="Center"/>
                 </StackLayout>
             </DataTemplate>
             <DataTemplate x:Key="OddTemplate">
-                <StackLayout Background="{StaticResource Gray700}" Orientation="Horizontal" Padding="10" Spacing="10">
+                <StackLayout Orientation="Horizontal" Padding="10" Spacing="10">
                     <Image Source="{Binding Image}" HeightRequest="50" Aspect="AspectFill" />
                     <Label Text="{Binding Title}" FontAttributes="Bold" 
                             VerticalTextAlignment="Center"/>
