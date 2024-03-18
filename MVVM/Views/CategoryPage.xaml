@@ -4,15 +4,13 @@
              x:Class="BibliotekaGierMAUI.MVVM.Views.CategoryPage"
              Title="CategoryPage">
 
-    <VerticalStackLayout>
+    <ScrollView>
         <CollectionView ItemsSource="{Binding Games}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Orientation="Vertical" Padding="10">
                         <Image Source="{Binding Image}" HeightRequest="100" Aspect="AspectFill" />
-                        <Label Text="{Binding Name}" FontAttributes="Bold" />
-                        <Label Text="{Binding Description}" />
-                        <Label Text="{Binding ReleaseDate}" />
+                        <Label Text="{Binding Title}" FontAttributes="Bold" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -25,6 +23,6 @@
                 </Frame>
             </CollectionView.EmptyView>
         </CollectionView>
-    </VerticalStackLayout>
+    </ScrollView>
     
 </ContentPage>

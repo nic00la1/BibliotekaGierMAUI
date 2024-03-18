@@ -68,7 +68,7 @@ namespace BibliotekaGierMAUI.Services
         public ICollection<Game> GetGamesByCategory(Category category)
         {
             // Zwróć gry, które należą do danej kategorii
-            return _games.Where(game => game.Category == category.Name).ToList();
+            return _games.Where(game => game.Genres.Contains(category.Name)).ToList();
         }
     }
 }
