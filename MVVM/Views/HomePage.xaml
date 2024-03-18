@@ -100,8 +100,19 @@
             </ScrollView>
 
             <BoxView />
-
+            
             <!-- Add other sections similarly -->
+
+            <StackLayout Style="{StaticResource HeaderStack}">
+                <Label Text="Recommended games" Style="{StaticResource SectionHeading}"/>
+                <Button Text="Show All" Style="{StaticResource ShowAllButton}"/>
+            </StackLayout>
+            <ScrollView Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding RecommendedGames}"
+                             BindableLayout.ItemTemplate="{StaticResource GameTemplate}"/>
+            </ScrollView>
+
+            <BoxView />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -17,6 +17,7 @@ namespace BibliotekaGierMAUI.ViewModels
             LoadFewTags();
 
             PopularGames = gamesService.GetPopularGames();
+            RecommendedGames = gamesService.GetRecommendedGames();
 
             // Gdy uzytkownik kliknie na gre, przenies go do strony z informacjami o grze
             TappedCommand = new Command<Game>((game) =>
@@ -50,6 +51,7 @@ namespace BibliotekaGierMAUI.ViewModels
         }
 
         public ICollection<Game> PopularGames { get; set; }
+        public ICollection<Game> RecommendedGames { get; }
         public Command<Game> TappedCommand { get; set; }
         public ICommand ToggleShowAllTagsCommand => new Command(() => ShowAllTags = !ShowAllTags);
 
