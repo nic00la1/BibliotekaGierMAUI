@@ -9,8 +9,9 @@ public partial class CategoryPage : ContentPage, IQueryAttributable
 {
     private IGamesService _games;
 
-    public CategoryPage()
+    public CategoryPage(IGamesService games)
     {
+        _games = games;
         InitializeComponent();
     }
 

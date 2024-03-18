@@ -6,6 +6,13 @@ namespace BibliotekaGierMAUI.Services
 {
     public class MockGamesService : IGamesService
     {
+        private ICollection<Game> _games; // Kolekcja gier
+
+        public MockGamesService() // Konstruktor 
+        {
+            _games = GetLatestGames();
+        }
+
         // Uzywam tego do kategorii, ktore wyswietlaja sie w SectionsPage
         public ICollection<Category> GetCategories() =>
             [
@@ -58,6 +65,10 @@ namespace BibliotekaGierMAUI.Services
                     ["TPP", "action", "western"])
             ];
 
-
+        public ICollection<Game> GetGamesByCategory(Category category)
+        {
+            // Zwróć gry, które należą do danej kategorii
+            return _games.Where(game => game.Category == category.Name).ToList();
+        }
     }
 }

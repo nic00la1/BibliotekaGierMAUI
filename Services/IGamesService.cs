@@ -7,5 +7,6 @@ namespace BibliotekaGierMAUI.Services
     {
         public ICollection<Game> GetLatestGames();
         public ICollection<Category> GetCategories();
+        public ICollection<Game> GetGamesByCategory(Category category);
     }
 }
