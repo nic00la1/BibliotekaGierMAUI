@@ -45,10 +45,12 @@ namespace BibliotekaGierMAUI
             mauiAppBuilder.Services.AddTransient<HomeViewModel>();
             mauiAppBuilder.Services.AddTransient<GameViewModel>();
             mauiAppBuilder.Services.AddTransient<SectionsViewModel>();
+            mauiAppBuilder.Services.AddTransient<CategoryViewModel>();
 
             mauiAppBuilder.Services.AddTransient<HomePage>();
             mauiAppBuilder.Services.AddTransient<GamePage>();
             mauiAppBuilder.Services.AddTransient<SectionsPage>();
+            mauiAppBuilder.Services.AddTransient<CategoryPage>();
 
             return mauiAppBuilder;
         }

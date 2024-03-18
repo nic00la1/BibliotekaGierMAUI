@@ -6,6 +6,7 @@ namespace BibliotekaGierMAUI.Services
 {
     public class MockGamesService : IGamesService
     {
+        // Uzywam tego do kategorii, ktore wyswietlaja sie w SectionsPage
         public ICollection<Category> GetCategories() =>
             [
                 new("RPG", MaterialDesignIcons.LocalAtm),

@@ -7,10 +7,10 @@ namespace BibliotekaGierMAUI.ViewModels
     {
         public HomeViewModel(IGamesService games)
         {
-            this.LatestGames = games.GetLatestGames();
+            LatestGames = games.GetLatestGames();
 
             // Gdy uzytkownik kliknie na gre, przenies go do strony z informacjami o grze
-            this.TappedCommand = new Command<Game>((game) =>
+            TappedCommand = new Command<Game>((game) =>
             {
                 var query = new Dictionary<string, object>()
                 {

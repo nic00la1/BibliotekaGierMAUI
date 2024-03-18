@@ -9,6 +9,7 @@ namespace BibliotekaGierMAUI
             InitializeComponent();
 
             Routing.RegisterRoute("game", typeof(GamePage));
+            Routing.RegisterRoute("category", typeof(CategoryPage));
 
         }
     }

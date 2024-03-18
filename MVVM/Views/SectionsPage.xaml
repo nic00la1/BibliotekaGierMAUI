@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:BibliotekaGierMAUI.MVVM.Views"
              xmlns:models="clr-namespace:BibliotekaGierMAUI.MVVM.Models"
+             xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.MVVM.ViewModels"
              x:Class="BibliotekaGierMAUI.MVVM.Views.SectionsPage"
              Title="Sections">
 
@@ -28,6 +29,11 @@
                                    BorderColor="Transparent"
                                    Margin="5,10">
                             <VerticalStackLayout Padding="20,6" VerticalOptions="Center" Spacing="10">
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:SectionsViewModel}},
+                                                          Path=TappedCommand}"/>
+                                </VerticalStackLayout.GestureRecognizers>
                                 <Label Text="{Binding MaterialIcon}"
                                            FontFamily="Material"
                                            FontSize="34"
