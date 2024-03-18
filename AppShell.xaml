@@ -15,10 +15,15 @@
                 Icon="home.png"
                 Route="home" />
         <ShellContent 
-            Title="Sections"
-            ContentTemplate="{DataTemplate views:SectionsPage}"
-            Icon="categories.png"
-            Route="sections" />
+                Title="Sections"
+                ContentTemplate="{DataTemplate views:SectionsPage}"
+                Icon="categories.png"
+                Route="sections" />
+        <ShellContent
+            Title="Bookmarks"
+            ContentTemplate="{DataTemplate views:BookmarksPage}"
+            Icon="bookmarks.png"
+            Route="bookmarks" />
 
 
     </TabBar>

@@ -18,7 +18,7 @@
         {
             var view = (View)sender;
             view.Opacity = 0;
-            await view.FadeTo(1, 1000);
+            await view.FadeTo(1, 1000); // Fade in over 1 second
         }
     }
 }

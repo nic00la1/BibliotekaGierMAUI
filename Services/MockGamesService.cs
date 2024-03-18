@@ -106,8 +106,12 @@ namespace BibliotekaGierMAUI.Services
                         new DateOnly(2020, 3, 10),
                         "codwarzone.jpg",
                         "modern",
-                        ["TPP", "action", "modern"]),
-                    new (8,
+                        ["TPP", "action", "modern"])
+            ];
+
+        public ICollection<Game> GetRecommendedGames() =>
+            [
+                 new (8,
                         "Minecraft",
                         "Minecraft is a sandbox video game developed by Mojang Studios. It was created by Markus Persson in the Java programming language and released as a public alpha for personal computers in 2009 before officially releasing in November 2011, with Jens Bergensten taking over development.",
                         new DateOnly(2011, 11, 18),
@@ -148,7 +152,14 @@ namespace BibliotekaGierMAUI.Services
                         new DateOnly(2020, 6, 19),
                         "tlou2.jpg",
                         "action-adventure",
-                        ["TPP", "action", "adventure"])
+                        ["TPP", "action", "adventure"]),
+                    new (14,
+                        "Subway Surfers",
+                        "Subway Surfers is an endless runner mobile game developed by Kiloo and SYBO Games. In the game, players take on the role of a graffiti-tagging character who runs through subway tracks, avoiding obstacles and collecting coins. The goal is to run as far as possible without getting caught by the grumpy inspector and his dog.",
+                        new DateOnly(2012, 5, 24),
+                        "subway.jpg",
+                        "arcade",
+                        ["TPP", "arcade", "endless runner"])
             ];
 
         public ICollection<Game> GetGamesByCategory(Category category)
@@ -157,5 +168,12 @@ namespace BibliotekaGierMAUI.Services
             return _games.Where(game => game.Genres.Contains(category.Name)).ToList();
         }
 
+        public ICollection<Game> GetBookmarkedGames()
+        {
+            // Zwróć gry, które są dodane do zakładek
+            var a = GetRecommendedGames();
+            var b = GetPopularGames();
+            return a.Concat(b).ToList();
+        }
     }
 }
