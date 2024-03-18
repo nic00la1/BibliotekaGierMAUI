@@ -3,13 +3,18 @@
              xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
              xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.MVVM.ViewModels"
              x:Class="BibliotekaGierMAUI.MVVM.Views.BookmarksPage"
-             Title="Bookmarks">
+             Title="">
     <ScrollView>
         <CollectionView ItemsSource="{Binding Games}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Game">
                     <Border StrokeThickness="0.5">
                         <ContentView Padding="16">
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" 
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:BookmarksViewModel}},
+                                                      Path=TappedCommand}"/>
+                            </ContentView.GestureRecognizers>
                             <Grid ColumnSpacing="16" ColumnDefinitions="120, *" RowDefinitions="60,40,20">
                                 <Frame Padding="0"
                                        Grid.Column="0"
@@ -23,13 +28,13 @@
                                 <Label Text="{Binding Title}"
                                    Grid.Row="0"
                                    Grid.Column="1"
-                                   MaxLines="3"
+                                   MaxLines="1"
                                    FontFamily="PoppinsSemibold"
                                    FontSize="18"/>
                                 <Label Text="{Binding Description}"
                                    TextColor="{StaticResource Gray400}"
                                        Margin="0,-30,10,0"
-                                   MaxLines="2"
+                                   MaxLines="3"
                                    Grid.Row="1"
                                    Grid.Column="1"/>
                                 
@@ -50,6 +55,15 @@
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.Header>
+                <Label Text="Bookmarks"
+                   FontFamily="PoppinsSemibold"
+                   FontSize="24"
+                   Margin="16,0,0,0"/>
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <BoxView HeightRequest="20" Color="{StaticResource Primary}"/>
+            </CollectionView.Footer>
         </CollectionView>
     </ScrollView>
 </ContentPage>
