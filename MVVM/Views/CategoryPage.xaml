@@ -16,6 +16,14 @@
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <Frame BackgroundColor="#FF7F7F" MaximumWidthRequest="400" Padding="16, 8"
+                       Margin="20">
+                    <Label Text="Nie ma żadnej gry w tej kategorii!" 
+                           FontFamily="PoppinsSemibold"
+                           FontSize="18"/>
+                </Frame>
+            </CollectionView.EmptyView>
         </CollectionView>
     </VerticalStackLayout>
     
