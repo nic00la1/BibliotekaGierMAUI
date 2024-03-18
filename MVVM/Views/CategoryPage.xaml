@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BibliotekaGierMAUI.Helpers"
              x:Class="BibliotekaGierMAUI.MVVM.Views.CategoryPage"
-             Title="CategoryPage">
+             Title="{Binding Name, StringFormat='Gry z kategorii: {0}'}">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="EvenTemplate">
+                <StackLayout Background="{StaticResource Gray600}" Orientation="Horizontal" Padding="10" Spacing="10">
+                    <Image Source="{Binding Image}" HeightRequest="50" Aspect="AspectFill" />
+                    <Label Text="{Binding Title}" FontAttributes="Bold" 
+                            VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="OddTemplate">
+                <StackLayout Background="{StaticResource Gray700}" Orientation="Horizontal" Padding="10" Spacing="10">
+                    <Image Source="{Binding Image}" HeightRequest="50" Aspect="AspectFill" />
+                    <Label Text="{Binding Title}" FontAttributes="Bold" 
+                            VerticalTextAlignment="Center"/>
+                </StackLayout>
+            </DataTemplate>
+            <local:GameTemplateSelector x:Key="GameTemplateSelector"
+                                        EvenTemplate="{StaticResource EvenTemplate}"
+                                        OddTemplate="{StaticResource OddTemplate}"/>
+        </ResourceDictionary>   
+    </ContentPage.Resources>
+    
     <ScrollView>
-        <CollectionView ItemsSource="{Binding Games}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Vertical" Padding="10">
-                        <Image Source="{Binding Image}" HeightRequest="100" Aspect="AspectFill" />
-                        <Label Text="{Binding Title}" FontAttributes="Bold" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+        <CollectionView ItemsSource="{Binding Games}" ItemTemplate="{StaticResource GameTemplateSelector}">
             <CollectionView.EmptyView>
                 <Frame BackgroundColor="#FF7F7F" MaximumWidthRequest="400" Padding="16, 8"
                        Margin="20">
