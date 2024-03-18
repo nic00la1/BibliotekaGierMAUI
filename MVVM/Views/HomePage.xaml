@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BibliotekaGierMAUI.Helpers.Behaviors"
              xmlns:models="clr-namespace:BibliotekaGierMAUI.Models"
              xmlns:viewModels="clr-namespace:BibliotekaGierMAUI.ViewModels"
              x:Class="BibliotekaGierMAUI.MVVM.Views.HomePage"
@@ -60,20 +61,26 @@
             <StackLayout Style="{StaticResource HeaderStack}">
                 <Label Text="Popular tags" Style="{StaticResource SectionHeading}"/>
                 <Button Text="Show All" Style="{StaticResource ShowAllButton}"
-                        Command="{Binding ToggleShowAllTagsCommand}"/>
+                        Command="{Binding ToggleShowAllTagsCommand}"
+                        Clicked="ShowAllTags_Animation"/>
             </StackLayout>
 
             <!-- Insert your tag collection here -->
-            <FlexLayout BindableLayout.ItemsSource="{Binding Tags}"
+            <FlexLayout x:Name="TagsLayout"
+                        BindableLayout.ItemsSource="{Binding Tags}"
                         Wrap="Wrap"
                         Margin="20,0">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#f2f2f2"
+                        <Frame x:Name="TagFrame"
+                               BackgroundColor="#f2f2f2"
                                BorderColor="Transparent"
                                CornerRadius="4"
                                Padding="8,2"
                                Margin="0,0,4,10">
+                            <Frame.Behaviors>
+                                <local:FadeInBehavior/>
+                            </Frame.Behaviors>
                             <Label Text="{Binding .}" FontFamily="Poppins" VerticalOptions="Center"
                                    TextColor="Black"/>
                         </Frame>
