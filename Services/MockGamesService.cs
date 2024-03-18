@@ -13,6 +13,31 @@ namespace BibliotekaGierMAUI.Services
             _games = GetPopularGames();
         }
 
+        public ICollection<string> GetTags()
+        {
+            return new List<string>
+            {
+                "RPG",
+                "FPP",
+                "TPP",
+                "fantasy",
+                "sci-fi",
+                "western",
+                "action",
+                "crime",
+                "cars",
+                "historical",
+                "modern",
+                "sandbox",
+                "simulation",
+                "battle royale",
+                "MOBA",
+                "strategy",
+                "action-adventure",
+                "adventure"
+            };
+        }
+
         // Uzywam tego do kategorii, ktore wyswietlaja sie w SectionsPage
         public ICollection<Category> GetCategories() =>
             [
@@ -126,5 +151,6 @@ namespace BibliotekaGierMAUI.Services
             // Zwróć gry, które należą do danej kategorii
             return _games.Where(game => game.Genres.Contains(category.Name)).ToList();
         }
+
     }
 }

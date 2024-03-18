@@ -58,6 +58,22 @@
             </StackLayout>
 
             <!-- Insert your tag collection here -->
+            <FlexLayout BindableLayout.ItemsSource="{Binding Tags}"
+                        Wrap="Wrap"
+                        Margin="20,0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#f2f2f2"
+                               BorderColor="Transparent"
+                               CornerRadius="4"
+                               Padding="8,2"
+                               Margin="0,0,4,10">
+                            <Label Text="{Binding .}" FontFamily="Poppins" VerticalOptions="Center"
+                                   TextColor="Black"/>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
 
             <BoxView />
 
