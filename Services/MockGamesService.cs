@@ -10,7 +10,7 @@ namespace BibliotekaGierMAUI.Services
 
         public MockGamesService() // Konstruktor 
         {
-            _games = GetPopularGames();
+            _games = GetPopularGames().Concat(GetRecommendedGames()).ToList();
         }
 
         public ICollection<string> GetTags()
