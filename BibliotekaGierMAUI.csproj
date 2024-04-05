@@ -89,6 +89,7 @@
 	  <None Remove="Resources\Images\profile.png" />
 	  <None Remove="Resources\Images\rdr2.jpg" />
 	  <None Remove="Resources\Images\skyrim.jpg" />
+	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\witcher3.jpg" />
 	</ItemGroup>
 
@@ -111,14 +112,13 @@
 	  <MauiXaml Update="MVVM\Views\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\SectionsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\home.png" />

@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BibliotekaGierMAUI"
     xmlns:views="clr-namespace:BibliotekaGierMAUI.MVVM.Views"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="Biblioteka Gier 😎">
 
     <TabBar>
@@ -20,11 +20,15 @@
                 Icon="categories.png"
                 Route="sections" />
         <ShellContent
-            Title="Bookmarks"
-            ContentTemplate="{DataTemplate views:BookmarksPage}"
-            Icon="bookmarks.png"
-            Route="bookmarks" />
+                Title="Bookmarks"
+                ContentTemplate="{DataTemplate views:BookmarksPage}"
+                Icon="bookmarks.png"
+                Route="bookmarks" />
 
-
+        <ShellContent
+             Title="Login"
+             ContentTemplate="{DataTemplate views:LoginPage}"
+             Route="LoginPage" 
+            Shell.FlyoutBehavior="Disabled"/>
     </TabBar>
 </Shell>
