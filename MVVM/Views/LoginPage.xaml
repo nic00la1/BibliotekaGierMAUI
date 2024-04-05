@@ -27,8 +27,12 @@
                 <Entry Placeholder="Podaj hasło" x:Name="password"
                        Margin="20"/>
 
-                <Button Text="Zaloguj się" HorizontalOptions="Center"
-                        Background="Yellow" TextColor="Black"/>
+            <Button Text="Zaloguj się" HorizontalOptions="Center" Margin="20"
+                    TextColor="Black">
+                <Button.Shadow>
+                    <Shadow Brush="Yellow" Opacity="1"/>
+                </Button.Shadow>
+            </Button>
             </StackLayout>
     </FlexLayout>
     
