@@ -4,6 +4,16 @@
              x:Class="BibliotekaGierMAUI.MVVM.Views.LoginPage"
              Title="LoginPage">
 
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+             label {
+                color: red;
+             }
+         ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+
     <FlexLayout Direction="Column" JustifyContent="SpaceAround">
         <StackLayout>
             <Label Text="Logowanie" FontSize="Large"
@@ -21,14 +31,15 @@
             </Border>
 
             <Label Text="Login" FontSize="Small"  Margin="20,0"/>
-                <Entry Placeholder="Podaj login" x:Name="login"
+                <Entry Placeholder="Podaj login" x:Name="login" StyleClass="obiekt"
                        Margin="20"/>
             <Label Text="Hasło" FontSize="Small" Margin="20,0"/>
                 <Entry Placeholder="Podaj hasło" x:Name="password"
+                       IsPassword="True" StyleClass="obiekt"
                        Margin="20"/>
 
             <Button Text="Zaloguj się" HorizontalOptions="Center" Margin="20"
-                    TextColor="Black">
+                    TextColor="Black" Clicked="Button_Clicked">
                 <Button.Shadow>
                     <Shadow Brush="Yellow" Opacity="1"/>
                 </Button.Shadow>

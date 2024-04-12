@@ -1,6 +1,5 @@
 using BibliotekaGierMAUI.Services;
 using BibliotekaGierMAUI.ViewModels;
-
 namespace BibliotekaGierMAUI.MVVM.Views;
 
 public partial class HomePage : ContentPage
